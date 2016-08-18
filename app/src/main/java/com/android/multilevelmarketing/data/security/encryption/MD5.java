@@ -1,4 +1,4 @@
-package com.android.multilevelmarketing.security.encryption;
+package com.android.multilevelmarketing.data.security.encryption;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

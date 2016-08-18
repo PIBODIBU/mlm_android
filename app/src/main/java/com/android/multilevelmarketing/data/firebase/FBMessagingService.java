@@ -1,4 +1,4 @@
-package com.android.multilevelmarketing.firebase;
+package com.android.multilevelmarketing.data.firebase;
 
 import android.app.Notification;
 import android.app.NotificationManager;

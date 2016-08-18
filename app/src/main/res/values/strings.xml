@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MultiLevel Marketing</string>
+    <string name="drawer_main_activity">Data</string>
 </resources>

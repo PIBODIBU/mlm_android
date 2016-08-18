@@ -1,4 +1,4 @@
-package com.android.multilevelmarketing.firebase;
+package com.android.multilevelmarketing.data.firebase;
 
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
