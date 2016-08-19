@@ -13,10 +13,22 @@ public class RegisterResponse {
     @SerializedName("uuid")
     private String uuid;
 
-    public RegisterResponse(String apiKey, String clientSecret, String uuid) {
+    @SerializedName("name")
+    private String name;
+
+    @SerializedName("surname")
+    private String surname;
+
+    @SerializedName("email")
+    private String email;
+
+    public RegisterResponse(String apiKey, String clientSecret, String uuid, String name, String surname, String email) {
         this.apiKey = apiKey;
         this.clientSecret = clientSecret;
         this.uuid = uuid;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
     }
 
     public String getApiKey() {
@@ -29,5 +41,17 @@ public class RegisterResponse {
 
     public String getUuid() {
         return uuid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getEmail() {
+        return email;
     }
 }

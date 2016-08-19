@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 public class SharedPrefUtils {
     private static SharedPrefUtils sharedPrefUtils = null;
     private SharedPreferences sharedPreferences;
-    private static final String SHARED_PREFS_NAME = "com.android.multilevelmarketing";
+    public static final String SHARED_PREFS_NAME = "com.android.multilevelmarketing";
 
     public static SharedPrefUtils getInstance(Context context) {
         if (sharedPrefUtils == null) {
@@ -43,19 +43,52 @@ public class SharedPrefUtils {
         return this;
     }
 
+    public SharedPrefUtils setName(String name) {
+        sharedPreferences.edit().putString(SharedPrefKeys.NAME, name).apply();
+        return this;
+    }
+
+    public SharedPrefUtils setSurname(String surname) {
+        sharedPreferences.edit().putString(SharedPrefKeys.SURNAME, surname).apply();
+        return this;
+    }
+
+    public SharedPrefUtils setEmail(String email) {
+        sharedPreferences.edit().putString(SharedPrefKeys.EMAIL, email).apply();
+        return this;
+    }
+
     /**
      * GETTERS
      */
-    public void getUUID() {
-        sharedPreferences.getString(SharedPrefKeys.UUID, "");
+    public String getUUID() {
+        return sharedPreferences.getString(SharedPrefKeys.UUID, "");
     }
 
-    public void getApiKey() {
-        sharedPreferences.getString(SharedPrefKeys.API_KEY, "");
+    public String getApiKey() {
+
+        return sharedPreferences.getString(SharedPrefKeys.API_KEY, "");
     }
 
-    public void getClientSecret() {
-        sharedPreferences.getString(SharedPrefKeys.CLIENT_SECRET, "");
+    public String getClientSecret() {
+        return sharedPreferences.getString(SharedPrefKeys.CLIENT_SECRET, "");
     }
 
+    public String getName() {
+        return sharedPreferences.getString(SharedPrefKeys.NAME, "");
+    }
+
+    public String getSurname() {
+        return sharedPreferences.getString(SharedPrefKeys.SURNAME, "");
+    }
+
+    public String getEmail() {
+        return sharedPreferences.getString(SharedPrefKeys.EMAIL, "");
+    }
+
+    public String getFullName() {
+        return sharedPreferences.getString(SharedPrefKeys.NAME, "")
+                + " "
+                + sharedPreferences.getString(SharedPrefKeys.SURNAME, "");
+    }
 }

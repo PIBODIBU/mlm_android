@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">MultiLevel Marketing</string>
+
     <string name="drawer_main_activity">Data</string>
+    <string name="drawer_logout">Logout</string>
+
+    <string name="token_check_failed">Bad token, exiting…</string>
+
+    <string name="first_launch_login">Login</string>
+    <string name="first_launch_register">Register</string>
+    <string name="first_launch_forgot_password">Forgot password?</string>
+
+    <string name="login_hint_username">Username</string>
+    <string name="login_hint_password">Password</string>
+    <string name="login_btn_login">Login</string>
+    <string name="toast_login_failed">Error occurred. Please, try again later.</string>
+
+    <string name="dialog_loading">Loading…</string>
 </resources>

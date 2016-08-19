@@ -17,6 +17,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.activity.FirstLaunchActivity" />
+        <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".ui.activity.RegisterActivity" />
+
         <service android:name=".data.firebase.FBMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

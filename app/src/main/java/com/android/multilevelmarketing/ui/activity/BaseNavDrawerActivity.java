@@ -28,7 +28,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
-public class BaseNavDrawerActivity extends AppCompatActivity {
+public class BaseNavDrawerActivity extends BaseActivity {
 
     private final String TAG = getClass().getSimpleName();
 
@@ -122,14 +122,20 @@ public class BaseNavDrawerActivity extends AppCompatActivity {
                 .withIcon(GoogleMaterial.Icon.gmd_person)
                 .withIdentifier(DrawerItems.MainActivity.ordinal());
 
+        final PrimaryDrawerItem logout = new PrimaryDrawerItem()
+                .withName(getResources().getString(R.string.drawer_logout))
+                .withIcon(GoogleMaterial.Icon.gmd_exit_to_app)
+                .withIdentifier(DrawerItems.Logout.ordinal());
+
         AccountHeader accountHeader = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withProfileImagesVisible(false)
                 .withHeaderBackground(R.color.colorPrimary)
                 .addProfiles(
                         new ProfileDrawerItem()
-                                .withName("NAME")
-                                .withEmail("EMAIL"))
+                                .withName(SharedPrefUtils.getInstance(this).getFullName())
+                                .withEmail(SharedPrefUtils.getInstance(this).getEmail())
+                )
                 .build();
 
         /**
@@ -144,7 +150,9 @@ public class BaseNavDrawerActivity extends AppCompatActivity {
                 .withHeaderDivider(false)
                 .withSliderBackgroundColor(ContextCompat.getColor(this, android.R.color.white))
                 .addDrawerItems(
-                        main
+                        main,
+                        new DividerDrawerItem(),
+                        logout
                 )
                 .withOnDrawerListener(new Drawer.OnDrawerListener() {
                     @Override
@@ -195,6 +203,11 @@ public class BaseNavDrawerActivity extends AppCompatActivity {
                                         break;
                                     }
                                 }
+                                case Logout: {
+                                    SharedPrefUtils.getInstance(BaseNavDrawerActivity.this).clear();
+                                    finish();
+                                    startActivity(new Intent(BaseNavDrawerActivity.this, FirstLaunchActivity.class));
+                                }
                                 default: {
                                     break;
                                 }
@@ -243,33 +256,13 @@ public class BaseNavDrawerActivity extends AppCompatActivity {
     }
 
     @Override
-    public void startActivity(Intent intent) {
-        super.startActivity(intent);
-
-        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-    }
-
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode) {
-        super.startActivityForResult(intent, requestCode);
-
-        overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-
-        overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right);
-    }
-
-    @Override
     protected void onResume() {
         getCurrentSelection();
         super.onResume();
     }
 
     private enum DrawerItems {
-        MainActivity
+        MainActivity,
+        Logout
     }
 }
