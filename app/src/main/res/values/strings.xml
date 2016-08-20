@@ -14,6 +14,36 @@
     <string name="login_hint_password">Password</string>
     <string name="login_btn_login">Login</string>
     <string name="toast_login_failed">Error occurred. Please, try again later.</string>
+    <string name="toast_login_bad_creds">Bad username or password.</string>
+
+    <string name="toast_register_server_error">Server error. Please, try again later.</string>
+    <string name="toast_register_failed">Error occurred. Please, try again later.</string>
 
     <string name="dialog_loading">Loading…</string>
+
+    <string name="register_info_main_refer">Nickname Dad/Mom</string>
+    <string name="register_info_main_name">Your name</string>
+    <string name="register_info_main_surname">Your surname</string>
+    <string name="register_info_main_phone">Phone number</string>
+    <string name="register_info_main_username">Username</string>
+    <string name="register_info_main_password">Password</string>
+    <string name="register_info_main_password_repeat">Password Repeat</string>
+    <string name="register_block_main">Main info</string>
+    <string name="register_block_shipping">Shipping info</string>
+    <string name="register_info_shipping_name">Name</string>
+    <string name="register_info_shipping_surname">Surname</string>
+    <string name="register_info_shipping_phone">Phone number</string>
+    <string name="register_info_shipping_country">Country</string>
+    <string name="register_info_shipping_postal">Postal Code</string>
+    <string name="register_info_shipping_city">City</string>
+    <string name="register_info_shipping_address">Full Address</string>
+    <string name="register_info_bank_name">Name</string>
+    <string name="register_info_bank_surname">Surname</string>
+    <string name="register_info_bank_iban">Bank IBAN</string>
+    <string name="register_info_bank_swift_code">Bank Swift Code</string>
+    <string name="register_info_bank_paypal">PaylPal</string>
+    <string name="register_info_bank_debit">Debit Card</string>
+    <string name="register_info_bank_personal_code">Personal Code</string>
+    <string name="register_info_main_email">Your Email</string>
+    <string name="register">Register</string>
 </resources>

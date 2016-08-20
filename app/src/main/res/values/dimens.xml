@@ -12,4 +12,5 @@
     <dimen name="login_fields_margin_top">24dp</dimen>
     <dimen name="login_fields_margin">16dp</dimen>
     <dimen name="login_btn_margin_top">24dp</dimen>
+    <dimen name="login_btn_margin_horizontal_land">100dp</dimen>
 </resources>

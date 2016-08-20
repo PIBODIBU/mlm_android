@@ -4,13 +4,16 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.multilevelmarketing.R;
 import com.android.multilevelmarketing.data.api.RetrofitAPI;
+import com.android.multilevelmarketing.data.keys.BundleKeys;
 import com.android.multilevelmarketing.data.model.RegisterResponse;
 import com.android.multilevelmarketing.data.sharedprefs.SharedPrefUtils;
 import com.android.multilevelmarketing.ui.dialog.LoadingDialog;
@@ -26,6 +29,9 @@ import retrofit2.Response;
 
 public class LoginActivity extends BaseAnimActivity {
     public final String TAG = getClass().getSimpleName();
+
+    @BindView(R.id.root_view)
+    public RelativeLayout rootView;
 
     @BindView(R.id.iv_logo)
     public ImageView IVLogo;
@@ -43,6 +49,19 @@ public class LoginActivity extends BaseAnimActivity {
         ButterKnife.bind(this);
 
         setupLayout();
+
+        if (savedInstanceState != null) {
+            ETUsername.setText(savedInstanceState.getString(BundleKeys.USERNAME, ""));
+            ETPassword.setText(savedInstanceState.getString(BundleKeys.PASSWORD, ""));
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(BundleKeys.USERNAME, ETUsername.getText().toString());
+        outState.putString(BundleKeys.PASSWORD, ETPassword.getText().toString());
+
+        super.onSaveInstanceState(outState);
     }
 
     private void setupLayout() {
@@ -78,7 +97,7 @@ public class LoginActivity extends BaseAnimActivity {
                 password
         ).enqueue(new Callback<RegisterResponse>() {
             private void onError() {
-                Toast.makeText(LoginActivity.this, getResources().getString(R.string.toast_login_failed), Toast.LENGTH_SHORT).show();
+                Snackbar.make(rootView, getResources().getString(R.string.toast_login_failed), Snackbar.LENGTH_LONG).show();
                 loadingDialog.cancel();
             }
 
@@ -92,6 +111,12 @@ public class LoginActivity extends BaseAnimActivity {
 
                 final RegisterResponse registerResponse = response.body();
 
+                if (response.body().isError()) {
+                    loadingDialog.cancel();
+                    Snackbar.make(rootView, getResources().getString(R.string.toast_login_bad_creds), Snackbar.LENGTH_LONG).show();
+                    return;
+                }
+
                 SharedPrefUtils.getInstance(LoginActivity.this)
                         .setUUID(registerResponse.getUuid())
                         .setApiKey(registerResponse.getApiKey())
@@ -102,7 +127,8 @@ public class LoginActivity extends BaseAnimActivity {
 
                 loadingDialog.cancel();
                 finish();
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                startActivity(new Intent(LoginActivity.this, MainActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
 
             @Override

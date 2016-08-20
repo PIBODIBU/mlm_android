@@ -22,13 +22,30 @@ public class RegisterResponse {
     @SerializedName("email")
     private String email;
 
-    public RegisterResponse(String apiKey, String clientSecret, String uuid, String name, String surname, String email) {
+    @SerializedName("error")
+    private boolean error;
+
+    @SerializedName("error_message")
+    private String errorMessage;
+
+    public RegisterResponse(
+            String apiKey,
+            String clientSecret,
+            String uuid,
+            String name,
+            String surname,
+            String email,
+            boolean error,
+            String errorMessage
+    ) {
         this.apiKey = apiKey;
         this.clientSecret = clientSecret;
         this.uuid = uuid;
         this.name = name;
         this.surname = surname;
         this.email = email;
+        this.error = error;
+        this.errorMessage = errorMessage;
     }
 
     public String getApiKey() {
@@ -53,5 +70,13 @@ public class RegisterResponse {
 
     public String getEmail() {
         return email;
+    }
+
+    public boolean isError() {
+        return error;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
     }
 }

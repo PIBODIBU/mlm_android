@@ -44,13 +44,11 @@ public class FirstLaunchActivity extends BaseAnimActivity {
 
     @OnClick(R.id.btn_login)
     public void startLoginActivity() {
-        finish();
         startActivity(new Intent(FirstLaunchActivity.this, LoginActivity.class));
     }
 
     @OnClick(R.id.btn_register)
     public void startRegisterActivity() {
-        finish();
         startActivity(new Intent(FirstLaunchActivity.this, RegisterActivity.class));
     }
 }

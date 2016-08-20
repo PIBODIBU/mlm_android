@@ -17,6 +17,15 @@ public interface IAPIService {
             @Field("password") String password
     );
 
-    @GET("rsa/public")
-    Call<ServerPublicKey> getServerPubKey();
+    @FormUrlEncoded
+    @POST("register")
+    Call<RegisterResponse> register(
+            @Field("name") String name,
+            @Field("surname") String surname,
+            @Field("email") String email,
+            @Field("phone") String phone,
+            @Field("username") String username,
+            @Field("password") String password,
+            @Field("refer") String refer
+    );
 }
