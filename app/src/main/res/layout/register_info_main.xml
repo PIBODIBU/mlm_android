@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical"
     android:paddingBottom="8dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:showIn="@layout/activity_register">
+    android:paddingRight="@dimen/activity_horizontal_margin">
 
     <TextView
         android:layout_width="match_parent"
@@ -29,30 +31,52 @@
         android:inputType="text"
         android:lines="1"
         android:maxLines="1"
+        android:nextFocusDown="@+id/et_main_name"
         android:textColor="@color/colorTextPrimary"
         android:theme="@style/AppTheme.EditTextStyle" />
 
-    <EditText
-        android:id="@+id/et_main_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="@string/register_info_main_name"
-        android:inputType="textCapWords"
-        android:lines="1"
-        android:maxLines="1"
-        android:textColor="@color/colorTextPrimary"
-        android:theme="@style/AppTheme.EditTextStyle" />
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-    <EditText
-        android:id="@+id/et_main_surname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/register_info_main_surname"
-        android:inputType="textCapWords"
-        android:textColor="@color/colorTextPrimary"
-        android:theme="@style/AppTheme.EditTextStyle" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/register_info_main_name"
+            app:theme="@style/AppTheme.TextInputLayout.Primary">
+
+            <EditText
+                android:id="@+id/et_main_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="textCapWords"
+                android:lines="1"
+                android:maxLines="1"
+                android:nextFocusDown="@+id/et_main_surname"
+                android:textColor="@color/colorTextPrimary" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/register_info_main_surname"
+            app:theme="@style/AppTheme.TextInputLayout.Primary">
+
+            <EditText
+                android:id="@+id/et_main_surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="textCapWords"
+                android:textColor="@color/colorTextPrimary" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/et_main_email"
@@ -83,30 +107,52 @@
         android:inputType="text"
         android:lines="1"
         android:maxLines="1"
+        android:nextFocusDown="@+id/et_password"
         android:textColor="@color/colorTextPrimary"
         android:theme="@style/AppTheme.EditTextStyle" />
 
-    <EditText
-        android:id="@+id/et_password"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/register_info_main_password"
-        android:inputType="textPassword"
-        android:lines="1"
-        android:maxLines="1"
-        android:textColor="@color/colorTextPrimary"
-        android:theme="@style/AppTheme.EditTextStyle" />
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-    <EditText
-        android:id="@+id/et_password_repeat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/register_info_main_password_repeat"
-        android:inputType="textPassword"
-        android:lines="1"
-        android:maxLines="1"
-        android:textColor="@color/colorTextPrimary"
-        android:theme="@style/AppTheme.EditTextStyle" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/register_info_main_password"
+            app:theme="@style/AppTheme.TextInputLayout.Primary">
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLines="1"
+                android:nextFocusDown="@+id/et_password_repeat"
+                android:textColor="@color/colorTextPrimary" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/register_info_main_password_repeat"
+            app:theme="@style/AppTheme.TextInputLayout.Primary">
+
+            <EditText
+                android:id="@+id/et_password_repeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/transparent"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLines="1"
+                android:textColor="@color/colorTextPrimary" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
 </LinearLayout>
