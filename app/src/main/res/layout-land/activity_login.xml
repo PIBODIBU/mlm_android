@@ -30,32 +30,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp" />
 
-            <EditText
-                android:id="@+id/et_username"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/login_btn_margin_horizontal_land"
                 android:layout_marginStart="@dimen/login_btn_margin_horizontal_land"
                 android:layout_marginTop="@dimen/login_fields_margin_top"
+                android:layout_weight="1"
                 android:hint="@string/login_hint_username"
-                android:inputType="text"
-                android:lines="1"
-                android:maxLines="1"
-                android:nextFocusDown="@+id/et_password"
-                android:theme="@style/AppTheme.EditTextStyle" />
+                app:theme="@style/AppTheme.TextInputLayout.Primary">
 
-            <EditText
-                android:id="@+id/et_password"
+                <EditText
+                    android:id="@+id/et_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:nextFocusDown="@+id/et_password"
+                    android:theme="@style/AppTheme.EditTextStyle" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/login_btn_margin_horizontal_land"
                 android:layout_marginStart="@dimen/login_btn_margin_horizontal_land"
                 android:layout_marginTop="@dimen/login_fields_margin"
+                android:layout_weight="1"
                 android:hint="@string/login_hint_password"
-                android:inputType="textPassword"
-                android:lines="1"
-                android:maxLines="1"
-                android:theme="@style/AppTheme.EditTextStyle" />
+                app:theme="@style/AppTheme.TextInputLayout.Primary">
+
+                <EditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:theme="@style/AppTheme.EditTextStyle" />
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/btn_login"

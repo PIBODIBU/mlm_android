@@ -46,4 +46,8 @@
     <string name="register_info_bank_personal_code">Personal Code</string>
     <string name="register_info_main_email">Your Email</string>
     <string name="register">Register</string>
+
+    <string name="register_error_passwords_not_matching">Passwords do not match</string>
+    <string name="register_error_empty_field">Please, fill this field</string>
+    <string name="register_error_contains_spaces">Field can\'t contain spaces</string>
 </resources>
