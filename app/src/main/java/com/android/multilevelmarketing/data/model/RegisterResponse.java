@@ -4,23 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class RegisterResponse {
 
-    @SerializedName("api_key")
-    private String apiKey;
-
-    @SerializedName("client_secret")
-    private String clientSecret;
-
-    @SerializedName("uuid")
-    private String uuid;
-
-    @SerializedName("name")
-    private String name;
-
-    @SerializedName("surname")
-    private String surname;
-
-    @SerializedName("email")
-    private String email;
+    @SerializedName("main_info")
+    private UserMainInfo mainInfo;
 
     @SerializedName("error")
     private boolean error;
@@ -28,48 +13,11 @@ public class RegisterResponse {
     @SerializedName("error_message")
     private String errorMessage;
 
-    public RegisterResponse(
-            String apiKey,
-            String clientSecret,
-            String uuid,
-            String name,
-            String surname,
-            String email,
-            boolean error,
-            String errorMessage
-    ) {
-        this.apiKey = apiKey;
-        this.clientSecret = clientSecret;
-        this.uuid = uuid;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.error = error;
-        this.errorMessage = errorMessage;
-    }
+    @SerializedName("error_code")
+    private int errorCode;
 
-    public String getApiKey() {
-        return apiKey;
-    }
-
-    public String getClientSecret() {
-        return clientSecret;
-    }
-
-    public String getUuid() {
-        return uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getEmail() {
-        return email;
+    public UserMainInfo getMainInfo() {
+        return mainInfo;
     }
 
     public boolean isError() {
@@ -78,5 +26,9 @@ public class RegisterResponse {
 
     public String getErrorMessage() {
         return errorMessage;
+    }
+
+    public int getErrorCode() {
+        return errorCode;
     }
 }

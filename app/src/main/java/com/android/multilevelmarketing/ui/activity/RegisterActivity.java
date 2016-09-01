@@ -66,6 +66,10 @@ public class RegisterActivity extends BaseAnimActivity {
 
     @BindString(R.string.register_error_contains_spaces)
     public String ERROR_FIELD_CONTAINS_SPACES;
+
+    @BindString(R.string.register_error_not_valid_email)
+    public String ERROR_NOT_VALID_EMAIL;
+
     /**
      * INTEGERS
      **/
@@ -108,6 +112,10 @@ public class RegisterActivity extends BaseAnimActivity {
             return;
         }
 
+        if (!isEmailValid(email)) {
+            return;
+        }
+
         if (!validateForMatching(password, passwordRepeat)) {
             return;
         }
@@ -147,12 +155,12 @@ public class RegisterActivity extends BaseAnimActivity {
                 }
 
                 SharedPrefUtils.getInstance(RegisterActivity.this)
-                        .setUUID(registerResponse.getUuid())
-                        .setApiKey(registerResponse.getApiKey())
-                        .setClientSecret(registerResponse.getClientSecret())
-                        .setName(registerResponse.getName())
-                        .setSurname(registerResponse.getSurname())
-                        .setEmail(registerResponse.getEmail());
+                        .setUUID(registerResponse.getMainInfo().getUuid())
+                        .setApiKey(registerResponse.getMainInfo().getApiKey())
+                        .setClientSecret(registerResponse.getMainInfo().getClientSecret())
+                        .setName(registerResponse.getMainInfo().getName())
+                        .setSurname(registerResponse.getMainInfo().getSurname())
+                        .setEmail(registerResponse.getMainInfo().getEmail());
 
                 loadingDialog.cancel();
                 finish();
@@ -167,10 +175,20 @@ public class RegisterActivity extends BaseAnimActivity {
         });
     }
 
+    private boolean isEmailValid(String email) {
+        boolean isValid = android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        TILMainEmail.setError(isValid ? "" : ERROR_NOT_VALID_EMAIL);
+        return isValid;
+    }
+
     private boolean checkForEmpty(TextInputLayout... layouts) {
         boolean validationPassed = true;
 
         for (TextInputLayout textInputLayout : layouts) {
+            if (textInputLayout.getEditText() != null) {
+                Log.e(TAG, "checkForEmpty()-> TextInputLayout is null");
+                continue;
+            }
             if (textInputLayout.getEditText().getText().toString().trim().equals("")) {
                 validationPassed = false;
                 textInputLayout.setError(ERROR_EMPTY_FIELD);
@@ -186,6 +204,11 @@ public class RegisterActivity extends BaseAnimActivity {
         boolean validationPassed = true;
 
         for (TextInputLayout textInputLayout : layouts) {
+            if (textInputLayout.getEditText() != null) {
+                Log.e(TAG, "checkForEmpty()-> TextInputLayout is null");
+                continue;
+            }
+
             if (textInputLayout.getEditText().getText().toString().trim().contains(" ")) {
                 validationPassed = false;
                 textInputLayout.setError(ERROR_FIELD_CONTAINS_SPACES);

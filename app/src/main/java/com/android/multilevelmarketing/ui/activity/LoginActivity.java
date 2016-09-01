@@ -118,12 +118,12 @@ public class LoginActivity extends BaseAnimActivity {
                 }
 
                 SharedPrefUtils.getInstance(LoginActivity.this)
-                        .setUUID(registerResponse.getUuid())
-                        .setApiKey(registerResponse.getApiKey())
-                        .setClientSecret(registerResponse.getClientSecret())
-                        .setName(registerResponse.getName())
-                        .setSurname(registerResponse.getSurname())
-                        .setEmail(registerResponse.getEmail());
+                        .setUUID(registerResponse.getMainInfo().getUuid())
+                        .setApiKey(registerResponse.getMainInfo().getApiKey())
+                        .setClientSecret(registerResponse.getMainInfo().getClientSecret())
+                        .setName(registerResponse.getMainInfo().getName())
+                        .setSurname(registerResponse.getMainInfo().getSurname())
+                        .setEmail(registerResponse.getMainInfo().getEmail());
 
                 loadingDialog.cancel();
                 finish();
