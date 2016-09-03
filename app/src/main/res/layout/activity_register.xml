@@ -1,60 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
+    android:fitsSystemWindows="true"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
-    <ScrollView
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBackground">
+        android:layout_height="170dp"
+        android:background="@color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <LinearLayout
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            app:contentScrim="@color/white"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
 
             <ImageView
                 android:id="@+id/iv_logo"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:background="@color/white"
+                app:layout_collapseMode="parallax"
                 app:srcCompat="@drawable/logo_yellow_green" />
 
-            <include layout="@layout/register_info_main" />
-
-            <View
+            <me.relex.circleindicator.CircleIndicator
+                android:id="@+id/view_pager_indicator"
                 android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="@drawable/shadow" />
+                android:layout_height="48dp"
+                android:layout_gravity="bottom"
+                app:ci_drawable="@drawable/indicator_selected"
+                app:ci_drawable_unselected="@drawable/indicator_unselected" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
 
-            <include layout="@layout/register_info_shipping" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="@drawable/shadow" />
-
-            <include layout="@layout/register_info_bank" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:background="@drawable/shadow" />
-
-            <Button
-                android:id="@+id/btn_register"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:background="@color/white"
-                android:text="@string/register"
-                android:textColor="@color/colorAccent"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
+    <com.android.multilevelmarketing.view.NonSwipeableViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</android.support.design.widget.CoordinatorLayout>
