@@ -20,73 +20,12 @@
         android:textSize="16sp"
         android:textStyle="bold" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
-            android:layout_toLeftOf="@+id/iv_photo"
-            android:layout_toStartOf="@+id/iv_photo"
-            android:orientation="vertical">
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/til_main_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/register_info_main_name"
-                android:theme="@style/AppTheme.TextInputLayout.Primary"
-                app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
-
-                <EditText
-                    android:id="@+id/et_main_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
-                    android:nextFocusDown="@+id/et_main_surname"
-                    android:textColor="@color/colorTextPrimary" />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/til_main_surname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/register_info_main_surname"
-                android:theme="@style/AppTheme.TextInputLayout.Primary"
-                app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
-
-                <EditText
-                    android:id="@+id/et_main_surname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
-                    android:nextFocusDown="@+id/et_main_email"
-                    android:textColor="@color/colorTextPrimary" />
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/iv_photo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            app:srcCompat="@drawable/ic_account_circle_grey_24dp" />
-    </RelativeLayout>
-
     <android.support.design.widget.TextInputLayout
         android:id="@+id/til_refer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/register_info_main_refer"
-        android:theme="@style/AppTheme.TextInputLayout.Primary"
+        android:theme="@style/AppTheme.TextInputLayout.Accent"
         app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
 
         <android.support.v7.widget.AppCompatEditText
@@ -98,12 +37,46 @@
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_main_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/register_info_main_name"
+        android:theme="@style/AppTheme.TextInputLayout.Accent"
+        app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
+
+        <EditText
+            android:id="@+id/et_main_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:nextFocusDown="@+id/et_main_surname"
+            android:textColor="@color/colorTextPrimary" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_main_surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/register_info_main_surname"
+        android:theme="@style/AppTheme.TextInputLayout.Accent"
+        app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
+
+        <EditText
+            android:id="@+id/et_main_surname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:nextFocusDown="@+id/et_main_email"
+            android:textColor="@color/colorTextPrimary" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
         android:id="@+id/til_main_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/register_info_main_email"
-        android:theme="@style/AppTheme.TextInputLayout.Primary"
+        android:theme="@style/AppTheme.TextInputLayout.Accent"
         app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
 
         <EditText
@@ -121,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/register_info_main_phone"
-        android:theme="@style/AppTheme.TextInputLayout.Primary"
+        android:theme="@style/AppTheme.TextInputLayout.Accent"
         app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
 
         <EditText
@@ -138,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/register_info_main_username"
-        android:theme="@style/AppTheme.TextInputLayout.Primary"
+        android:theme="@style/AppTheme.TextInputLayout.Accent"
         app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
 
         <EditText
@@ -163,7 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="@string/register_info_main_password"
-            android:theme="@style/AppTheme.TextInputLayout.Primary"
+            android:theme="@style/AppTheme.TextInputLayout.Accent"
             app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
 
             <EditText
@@ -183,7 +156,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="@string/register_info_main_password_repeat"
-            android:theme="@style/AppTheme.TextInputLayout.Primary"
+            android:theme="@style/AppTheme.TextInputLayout.Accent"
             app:errorTextAppearance="@style/AppTheme.TextInputLayout.ErrorTextAppearance">
 
             <EditText

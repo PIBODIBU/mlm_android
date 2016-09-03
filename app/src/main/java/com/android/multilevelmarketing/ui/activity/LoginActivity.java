@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.widget.EditText;
@@ -31,7 +32,7 @@ public class LoginActivity extends BaseAnimActivity {
     public final String TAG = getClass().getSimpleName();
 
     @BindView(R.id.root_view)
-    public RelativeLayout rootView;
+    public CoordinatorLayout rootView;
 
     @BindView(R.id.iv_logo)
     public ImageView IVLogo;

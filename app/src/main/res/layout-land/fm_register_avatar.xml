@@ -11,14 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/wrapper_buttons"
-        android:layout_alignParentTop="true"
-        android:gravity="center">
+        android:layout_alignParentTop="true">
 
         <RelativeLayout
             android:id="@+id/rl_iv_photo_wrapper"
             android:layout_width="204dp"
             android:layout_height="204dp"
-            android:layout_centerHorizontal="true">
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp">
 
             <ImageView
                 android:id="@+id/iv_photo"
@@ -28,45 +29,50 @@
                 app:srcCompat="@drawable/ic_add_a_photo_white_24dp" />
         </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_text_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rl_iv_photo_wrapper"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:gravity="center_horizontal"
-            android:text="@string/register_avatar_title"
-            android:textColor="@color/colorTextSecondary"
-            android:textSize="28sp" />
-
-        <TextView
-            android:id="@+id/tv_text_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_text_title"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center_horizontal"
-            android:text="@string/register_avatar_text"
-            android:textColor="@color/colorTextSecondary"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/btn_register"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_text_text"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/btn_cornered_accent_dark_24dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:text="Register"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:visibility="invisible" />
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_toEndOf="@+id/rl_iv_photo_wrapper"
+            android:layout_toRightOf="@+id/rl_iv_photo_wrapper">
+
+            <TextView
+                android:id="@+id/tv_text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/register_avatar_title"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_text_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_text_title"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/register_avatar_text"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_text_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_cornered_accent_dark_24dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="invisible" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <LinearLayout

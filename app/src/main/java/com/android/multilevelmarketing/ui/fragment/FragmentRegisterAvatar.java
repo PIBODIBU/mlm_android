@@ -1,5 +1,6 @@
 package com.android.multilevelmarketing.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -45,6 +47,9 @@ public class FragmentRegisterAvatar extends Fragment {
     @BindView(R.id.tv_text_text)
     public TextView TVText;
 
+    @BindView(R.id.btn_register)
+    public Button BTNRegister;
+
     private static final int REQUEST_CODE_PICK_IMAGE = 10;
 
     private Uri selectedImageUri = null;
@@ -63,6 +68,14 @@ public class FragmentRegisterAvatar extends Fragment {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        ((RegisterActivity) getActivity()).setStatusBarColor(R.color.fm_register_avatar_status_bar);
+        ((RegisterActivity) getActivity()).setNavigationBarColor(R.color.fm_register_avatar_status_bar);
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -77,12 +90,14 @@ public class FragmentRegisterAvatar extends Fragment {
                     IVPhoto.setImageResource(R.drawable.ic_add_a_photo_white_24dp);
                     TVTitle.setText(TITLE_NOT_UPLOADED);
                     TVText.setText(TEXT_NOT_UPLOADED);
+                    BTNRegister.setVisibility(View.INVISIBLE);
                     return;
                 }
 
                 selectedImageUri = data.getData();
                 TVTitle.setText(TITLE_UPLOADED);
                 TVText.setText(TEXT_UPLOADED);
+                BTNRegister.setVisibility(View.VISIBLE);
                 Picasso
                         .with(getActivity())
                         .load(selectedImageUri)

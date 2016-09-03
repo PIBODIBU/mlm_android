@@ -6,6 +6,7 @@
     <color name="colorPrimaryLightFull">#DCEDC8</color>
     <color name="colorAccent">#FF9800</color>
     <color name="colorAccentLight">#FFB74D</color>
+    <color name="colorAccentDark">#F57C00</color>
 
     <color name="colorTextPrimary">#dd000000</color>
     <color name="colorTextSecondary">#89000000</color>
@@ -18,4 +19,8 @@
     <color name="colorBackgroundMessageForeign">#DCEDC8</color>
 
     <color name="white">#ffffff</color>
+
+    <color name="fm_register_avatar_bg">#FFB300</color>
+    <color name="fm_register_avatar_btns_bg">#FFA000</color>
+    <color name="fm_register_avatar_status_bar">#FFA000</color>
 </resources>

@@ -30,6 +30,7 @@
     <string name="register_info_main_password_repeat">Password Repeat</string>
     <string name="register_block_main">Main info</string>
     <string name="register_block_shipping">Shipping info</string>
+    <string name="register_block_bank">Bank info</string>
     <string name="register_info_shipping_name">Name</string>
     <string name="register_info_shipping_surname">Surname</string>
     <string name="register_info_shipping_phone">Phone number</string>
@@ -51,4 +52,6 @@
     <string name="register_error_empty_field">Please, fill this field</string>
     <string name="register_error_contains_spaces">Field can\'t contain spaces</string>
     <string name="register_error_not_valid_email">Invalid email address</string>
+    <string name="register_avatar_title">Upload your photo</string>
+    <string name="register_avatar_text">This is the final step. Upload your photo and your friends will recognize you.</string>
 </resources>

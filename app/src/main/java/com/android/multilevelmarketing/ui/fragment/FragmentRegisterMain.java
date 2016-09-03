@@ -1,6 +1,7 @@
 package com.android.multilevelmarketing.ui.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
@@ -94,6 +95,14 @@ public class FragmentRegisterMain extends Fragment {
         ButterKnife.bind(this, rootView);
 
         return rootView;
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        ((RegisterActivity) getActivity()).setStatusBarColor(R.color.colorAccentDark);
+        ((RegisterActivity) getActivity()).setNavigationBarColor(R.color.colorAccentDark);
     }
 
     @OnClick(R.id.btn_next)

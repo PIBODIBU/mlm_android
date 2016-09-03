@@ -16,10 +16,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FragmentRegisterShipping extends Fragment {
+public class FragmentRegisterBank extends Fragment {
     private final String TAG = getClass().getSimpleName();
 
-    @BindView(R.id.root_view_info_shipping)
+    @BindView(R.id.root_view_info_bank)
     public CoordinatorLayout rootView;
 
     /**
@@ -34,7 +34,7 @@ public class FragmentRegisterShipping extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fm_register_shipping, container, false);
+        View rootView = inflater.inflate(R.layout.fm_register_bank, container, false);
         ButterKnife.bind(this, rootView);
 
         return rootView;
